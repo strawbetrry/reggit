@@ -1,7 +1,7 @@
 package com.whxy.reggie.bean;
 
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -21,9 +21,9 @@ public class Employee implements Serializable {
     private Integer status;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
-    @TableField(exist = false)
+    @TableField(fill = FieldFill.INSERT)
     private Long createUser;
-    @TableField(exist = false)
+    @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
 
 }
