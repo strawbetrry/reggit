@@ -13,6 +13,7 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         Object employee = request.getSession().getAttribute("employee");
         if(employee == null){
+            //前端定义了响应拦截器，必须返回R类型
             response.getWriter().write(JSON.toJSONString(R.error("NOTLOGIN")));
             return false;
         }
