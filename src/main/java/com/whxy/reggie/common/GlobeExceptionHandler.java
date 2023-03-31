@@ -30,4 +30,9 @@ public class GlobeExceptionHandler {
         }
         return R.error("未知错误");
     }
+    @ExceptionHandler(CustomerException.class)
+    public R<String> cusError(CustomerException e){
+        log.error("错误信息--->{}",e.getMessage());
+        return R.error(e.getMessage());
+    }
 }

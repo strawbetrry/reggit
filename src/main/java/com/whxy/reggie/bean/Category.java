@@ -7,18 +7,16 @@ import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
-
+/**
+ * 菜品类型
+ */
 @Data
-public class Employee implements Serializable {
-    private static final Long serialVersionUID = 1L;
+public class Category implements Serializable {
+    private static final long serialVersionUID = 1L;
     private Long id;
-    private String name;
-    private String username;
-    private String password;
-    private String phone;
-    private String sex;
-    private String idNumber; //身份证号
-    private Integer status;
+    private Integer type; //菜品类型,1:菜品分类；2:套餐分类
+    private String name;  //分类名称
+    private Integer sort; //顺序
     @TableField(fill = FieldFill.INSERT)
     private LocalDateTime createTime;
     @TableField(fill = FieldFill.INSERT_UPDATE)
@@ -27,5 +25,6 @@ public class Employee implements Serializable {
     private Long createUser;
     @TableField(fill = FieldFill.INSERT_UPDATE)
     private Long updateUser;
-
+    @TableField(exist = false)
+    private Integer isDeleted;  //是否删除
 }
